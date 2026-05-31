@@ -1,0 +1,58 @@
+﻿@model List<SucceedServices.WhatsApp.Models.MessageLog>
+
+@{
+    ViewData["Title"] = "Message Logs";
+}
+
+<div class="card shadow">
+
+    <div class="card-header">
+        <h3>Message Logs</h3>
+    </div>
+
+    <div class="card-body">
+
+        <table class="table table-bordered table-striped">
+
+            <thead>
+
+                <tr>
+                    <th>Id</th>
+                    <th>Mobile Number</th>
+                    <th>Message</th>
+                    <th>Status</th>
+                    <th>Date</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+
+                        <td>@item.Id</td>
+
+                        <td>@item.PhoneNumber</td>
+
+                        <td>@item.Message</td>
+
+                        <td>
+                            @(item.IsSent ? "Sent" : "Failed")
+                        </td>
+
+                        <td>
+                            @item.CreatedOn
+                        </td>
+
+                    </tr>
+                }
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
